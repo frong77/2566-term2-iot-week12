@@ -22,6 +22,10 @@ app.get('/about', (req, res)=> {
 app.get('/profile', (req, res) => {
     return res.status(200).sendFile(path.join(__dirname+ 'pages/profile.html'))
 })
+//404 not found page
+app.use( req, res, next => {
+    return res.status(404).sendFile(path.join(__dirname+ 'pages/missing.html'))
+})
 app.listen(5000, () => {
     console.log(`Server running at http://localhost:${PORT}`)
 })
